@@ -6,6 +6,9 @@ import { userAPI, aiAPI } from '../services/api'
 import { useAuthStore } from '../store/authStore'
 import { useAIStore } from '../store/aiStore'
 
+// Voice recording duration in milliseconds
+const VOICE_RECORDING_DURATION_MS = 10000
+
 export default function ProfilePage() {
   const navigate = useNavigate()
   const { user } = useAuthStore()
@@ -91,11 +94,11 @@ export default function ProfilePage() {
       mediaRecorder.start()
       setIsRecording(true)
 
-      // Stop after 10 seconds
+      // Stop after the configured recording duration
       setTimeout(() => {
         mediaRecorder.stop()
         setIsRecording(false)
-      }, 10000)
+      }, VOICE_RECORDING_DURATION_MS)
     } catch (error) {
       toast.error('Microphone access denied')
     }

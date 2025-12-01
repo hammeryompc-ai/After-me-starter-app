@@ -167,4 +167,5 @@ def synthesize_speech(text, voice_profile):
 
 if __name__ == '__main__':
     port = int(os.getenv('AI_SERVICE_PORT', 6000))
-    app.run(host='0.0.0.0', port=port, debug=True)
+    debug_mode = os.getenv('FLASK_ENV', 'production') == 'development'
+    app.run(host='0.0.0.0', port=port, debug=debug_mode)
