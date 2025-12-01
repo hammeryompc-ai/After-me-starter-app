@@ -2,3 +2,16 @@ node_modules/
 .env
 dist/
 coverage/
+.DS_Store
+*.log
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+build/
+*.swp
+*.swo
+.idea/
+*.iml
